@@ -7,6 +7,13 @@ class Student(object):
         self.name = name
         self.marks = []
 
+    def average_mark(self):
+        divisor = len(self.marks)
+        if divisor == 0:
+            return 0
+        total = sum(self.marks)
+        return total / divisor
+
 
 def create_student():
     name = input("Please enter the student's name: ")
@@ -17,17 +24,9 @@ def append_mark(student, mark):
     student.marks.append(mark)
 
 
-def calculate_average_mark(student):
-    divisor = len(student.marks)
-    if divisor == 0:
-        return 0
-    suma = sum(student.marks)
-    return suma / divisor
-
-
 def print_student_details(student):
     print("student's name ", student.name)
-    print("student's average ", calculate_average_mark(student))
+    print("student's average ", student.average_mark())
 
 
 def print_student_list(students):
