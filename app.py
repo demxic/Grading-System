@@ -1,30 +1,32 @@
 student_list = []
 # Now integrating to Git
 
+class Student(object):
+
+    def __init__(self, name):
+        self.name = name
+        self.marks = []
+
+
 def create_student():
-    # Ask the user for student´s name
-    # Create the Dictionary in the format {'name' : 'student_name', 'marks' : []
-    # Return that dictionary
-    student_name = input("Enter the student's name ")
-    student_data = {'name': student_name,
-                    'marks': []}
-    return student_data
+    name = input("Please enter the student's name: ")
+    return Student(name)
 
 
 def append_mark(student, mark):
-    student['marks'].append(mark)
+    student.marks.append(mark)
 
 
 def calculate_average_mark(student):
-    divisor = len(student['marks'])
+    divisor = len(student.marks)
     if divisor == 0:
         return 0
-    suma = sum(student['marks'])
+    suma = sum(student.marks)
     return suma / divisor
 
 
 def print_student_details(student):
-    print("student's name ", student['name'])
+    print("student's name ", student.name)
     print("student's average ", calculate_average_mark(student))
 
 
